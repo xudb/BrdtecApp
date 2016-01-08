@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_bg"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/bottom_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        layout="@layout/layout_bottom_bar" />
+
+    <RelativeLayout
+        android:id="@+id/tank_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/anguaibianhao"
+            style="@style/Main_Font_17sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingRight="5dp"
+            android:text="岸罐编号" />
+
+        <TextView
+            android:id="@+id/btn_minus"
+            style="@style/Main_Font_16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="2dp"
+            android:layout_toRightOf="@id/anguaibianhao"
+            android:background="@drawable/task_select_bg"
+            android:gravity="center"
+            android:minHeight="28dp"
+            android:minWidth="28dp"
+            android:text="—" />
+
+        <TextView
+            android:id="@+id/tank_no"
+            style="@style/Main_Font_15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="2dp"
+            android:layout_toRightOf="@id/btn_minus"
+            android:background="@drawable/task_select_bg"
+            android:gravity="center"
+            android:minHeight="28dp"
+            android:minWidth="28dp"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:text="岸罐1" />
+
+        <TextView
+            android:id="@+id/btn_add"
+            style="@style/Main_Font_17sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="0dp"
+            android:layout_toRightOf="@id/tank_no"
+            android:background="@drawable/task_select_bg"
+            android:gravity="center"
+            android:minHeight="28dp"
+            android:minWidth="28dp"
+            android:text="+" />
+
+        <TextView
+            android:id="@+id/add_hint"
+            style="@style/Main_Font_14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="0dp"
+            android:layout_toRightOf="@id/btn_add"
+            android:gravity="left|bottom"
+            android:minHeight="@dimen/edittext_32_height"
+            android:text="最多可以添加5个岸罐子"
+            android:textSize="8sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/input_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_ll"
+        android:layout_below="@id/tank_rl"
+        android:layout_marginTop="10dp"
+        android:background="@color/white_color"
+        android:padding="10dp"
+        android:visibility="visible" >
+
+        <TextView
+            android:id="@+id/anguangaodu"
+            style="@style/Main_Font_16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingRight="0dp"
+            android:text="岸罐参考高度" />
+
+        <EditText
+            android:id="@+id/anguangaodu_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/anguangaodu"
+            android:background="@drawable/task_input_bg"
+            android:gravity="left|center_vertical"
+            android:hint="请输入"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingLeft="4dp" />
+
+        <TextView
+            android:id="@+id/qianchishijian"
+            style="@style/Main_Font_16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/anguangaodu"
+            android:layout_marginTop="20dp"
+            android:gravity="left|center_vertical"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingRight="30dp"
+            android:text="前尺时间" />
+
+        <TextView
+            android:id="@+id/qianchishijian_tv"
+            style="@style/Main_Font_16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/anguangaodu_et"
+            android:layout_below="@id/anguangaodu_et"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/qianchishijian"
+            android:background="@drawable/task_input_bg"
+            android:drawableRight="@drawable/ic_job_arrow_down"
+            android:gravity="left|center_vertical"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingLeft="4dp"
+            android:text="2016-1-2" />
+
+        <TextView
+            android:id="@+id/yeweigaodu"
+            style="@style/Main_Font_16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/qianchishijian"
+            android:layout_marginTop="20dp"
+            android:gravity="left|center_vertical"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingRight="0dp"
+            android:text="前尺液位高度" />
+
+        <EditText
+            android:id="@+id/yeweigaodu_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/anguangaodu_et"
+            android:layout_below="@id/qianchishijian"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/yeweigaodu"
+            android:background="@drawable/task_input_bg"
+            android:gravity="left|center_vertical"
+            android:hint="请输入"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingLeft="4dp" />
+
+        <TextView
+            android:id="@+id/qianchiwendu"
+            style="@style/Main_Font_16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/yeweigaodu"
+            android:layout_marginTop="20dp"
+            android:gravity="left|center_vertical"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingRight="0dp"
+            android:text="前尺温度" />
+
+        <EditText
+            android:id="@+id/qianchiwendu_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/anguangaodu_et"
+            android:layout_below="@id/yeweigaodu"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/qianchiwendu"
+            android:background="@drawable/task_input_bg"
+            android:gravity="left|center_vertical"
+            android:hint="请输入"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingLeft="4dp" />
+
+        <TextView
+            android:id="@+id/bukejiliang"
+            style="@style/Main_Font_16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/qianchiwendu"
+            android:layout_marginTop="20dp"
+            android:gravity="left|center_vertical"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingRight="0dp"
+            android:text="不可计量区间" />
+
+        <EditText
+            android:id="@+id/bukejiliang_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/anguangaodu_et"
+            android:layout_below="@id/qianchiwendu"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/bukejiliang"
+            android:background="@drawable/task_input_bg"
+            android:gravity="left|center_vertical"
+            android:hint="请输入"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingLeft="4dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/input_rl2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_ll"
+        android:layout_below="@id/tank_rl"
+        android:layout_marginTop="10dp"
+        android:background="@color/white_color"
+        android:padding="10dp"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/houchishijian"
+            style="@style/Main_Font_16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingRight="20dp"
+            android:text="后尺时间" />
+
+        <TextView
+            android:id="@+id/houchishijian_tv"
+            style="@style/Main_Font_16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/houchishijian"
+            android:background="@drawable/task_input_bg"
+            android:drawableRight="@drawable/ic_job_arrow_down"
+            android:gravity="left|center_vertical"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingLeft="4dp"
+            android:text="2016-1-2" />
+
+        <TextView
+            android:id="@+id/houchiyeweigaodu"
+            style="@style/Main_Font_16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/houchishijian"
+            android:layout_marginTop="20dp"
+            android:gravity="left|center_vertical"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingRight="0dp"
+            android:text="后尺液位高度" />
+
+        <EditText
+            android:id="@+id/houchiyeweigaodu_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/houchishijian_tv"
+            android:layout_below="@id/houchishijian"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/houchiyeweigaodu"
+            android:background="@drawable/task_input_bg"
+            android:gravity="left|center_vertical"
+            android:hint="请输入"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingLeft="4dp" />
+
+        <TextView
+            android:id="@+id/houchiwendu"
+            style="@style/Main_Font_16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/houchiyeweigaodu"
+            android:layout_marginTop="20dp"
+            android:gravity="left|center_vertical"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingRight="0dp"
+            android:text="后尺温度" />
+
+        <EditText
+            android:id="@+id/houchiwendu_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/houchishijian_tv"
+            android:layout_below="@id/houchiyeweigaodu"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/houchiwendu"
+            android:background="@drawable/task_input_bg"
+            android:gravity="left|center_vertical"
+            android:hint="请输入"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingLeft="4dp" />
+    </RelativeLayout>
+
+</RelativeLayout>

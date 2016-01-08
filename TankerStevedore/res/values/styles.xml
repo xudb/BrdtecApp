@@ -1,0 +1,113 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="AlertDialog" parent="android:Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/popup_bg</item>
+    </style>
+
+    <style name="CustomWindowTitleBackground">
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="customListView" parent="@android:style/Widget.ListView">
+        <item name="android:cacheColorHint">@null</item>
+        <item name="android:scrollingCache">false</item>
+ 	    <!-- 这个设置成true会导致滑动产生更多的GC -->
+    </style>
+
+    <style name="CustomInputDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+    </style>
+
+    <style name="customCheckBox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox_bg</item>
+    </style>
+
+    <style name="customRadioButton" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:button">@drawable/du_radio_selector</item>
+    </style>
+
+    <style name="customEditText" parent="@android:style/Widget.EditText">
+        <item name="android:background">@drawable/edit_text</item>
+    </style>
+
+    <style name="DialogStyle">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+    </style>
+    <!-- title统一文字大小 -->
+    <style name="TitleText">
+        <item name="android:textColor">@color/bar_text</item>
+        <item name="android:textSize">17dp</item>
+    </style>
+
+    <style name="TitleBtn">
+        <item name="android:textColor">@color/white_color</item>
+        <item name="android:textSize">17dp</item>
+    </style>
+
+    <style name="B3_Font">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="B3_Font_white">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black_item</item>
+    </style>
+
+    <style name="B3_Font_black">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white_item</item>
+    </style>
+
+    <style name="B3_Font_blue">
+        <item name="android:textColor">@color/blue_item</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    
+    <style name="Main_Font_17sp">
+        <item name="android:textColor">@color/main_txt_item</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+    
+    <style name="Main_Font_16sp">
+        <item name="android:textColor">@color/main_txt_item</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    
+    <style name="Main_Font_15sp">
+        <item name="android:textColor">@color/main_txt_item</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    
+    <style name="Main_Font_14sp">
+        <item name="android:textColor">@color/main_txt_item</item>
+        <item name="android:textSize">14sp</item>
+    </style>    
+
+</resources>

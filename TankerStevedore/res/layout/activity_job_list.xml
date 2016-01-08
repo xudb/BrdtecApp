@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_bg" >
+
+    <LinearLayout
+        android:id="@+id/job_type_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edittext_32_height"
+        android:layout_margin="10dp"
+        android:background="@drawable/search_bar_bg"
+        android:orientation="horizontal" >
+
+        <com.brdtec.stevedore.widget.DrawableCenterTextView
+            android:id="@+id/job_type_tv"
+            style="@style/Main_Font_15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:drawableRight="@drawable/ic_job_arrow_down"
+            android:gravity="center"
+            android:minWidth="100dp"
+            android:text="@string/job_txt_type" />
+        
+        <View android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/color_divider"/>
+
+        <com.brdtec.stevedore.widget.DrawableCenterTextView
+            android:id="@+id/job_type_search"
+            style="@style/Main_Font_14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:drawableLeft="@drawable/ic_job_search"
+            android:gravity="center"
+            android:minWidth="120dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/job_txt_search"
+            android:textColor="@color/light_grey" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/job_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/job_type_ll"
+        android:dividerHeight="5dp"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:padding="10dp"
+        android:background="@color/white_color"
+        android:listSelector="#00000000" />
+
+</RelativeLayout>

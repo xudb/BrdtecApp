@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 通用颜色　 -->
+    <color name="transparent">#00FFFFFF</color>
+    <color name="black_color">#000000</color>
+    <color name="gray_color">#808080</color>
+    <color name="white_color">#ffffff</color>
+    <color name="red_color">#ff0000</color>
+    <color name="green_color">#00ff00</color>
+    <color name="blue_color">#0000ff</color>
+    <color name="light_blue">#3E99DB</color>
+    <color name="orange_color">#FF6600</color>
+    <color name="light_white_color">#eeeeee</color>
+    <color name="light_black_color">#222222</color>
+    <color name="color_blue_sky">#5e7d87</color>
+    <color name="color_gray_light">#99C9C9C9</color>
+    <color name="color_black_light">#99000000</color>
+    <color name="white_smoke">#F5F5F5</color> <!-- 白烟 -->
+    <color name="light_grey">#929292</color> <!-- 轻灰 -->
+    
+    <!-- 主背景颜色 -->
+    <color name="color_main_bg">#EDEDED</color>
+    <!-- 字体颜色 -->
+	<color name="color_main_txt">#3E3E3E</color>
+	<!-- 底部操作栏颜色 -->
+	<color name="color_bottom_bar_bg">#DDF0FF</color>
+	
+	<color name="color_divider">#DEDFE1</color>
+	
+	<color name="color_task_name">#41A8DA</color>
+
+</resources>

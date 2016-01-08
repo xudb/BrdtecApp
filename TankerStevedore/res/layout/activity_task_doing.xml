@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_bg"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/bottom_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        layout="@layout/layout_bottom_bar" />
+
+    <RelativeLayout
+        android:id="@+id/input_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_ll"
+        android:layout_marginTop="10dp"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/yixieliang"
+            style="@style/Main_Font_17sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingRight="30dp"
+            android:text="已卸量:" />
+
+        <EditText
+            android:id="@+id/yixieliang_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/yixieliang"
+            android:background="@drawable/task_input_bg"
+            android:gravity="left|center_vertical"
+            android:hint="请输入"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingLeft="4dp" />
+
+        <TextView
+            android:id="@+id/shengyuliang"
+            style="@style/Main_Font_17sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/yixieliang"
+            android:layout_marginTop="20dp"
+            android:gravity="left|center_vertical"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingRight="30dp"
+            android:text="剩余量:" />
+
+        <EditText
+            android:id="@+id/shengyuliang_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/yixieliang_et"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/shengyuliang"
+            android:background="@drawable/task_input_bg"
+            android:gravity="left|center_vertical"
+            android:hint="请输入"
+            android:minHeight="@dimen/edittext_32_height"
+            android:paddingLeft="4dp" />
+
+        <TextView
+            android:id="@+id/btn_reset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/task_gray_btn_bg"
+            android:gravity="center"
+            android:minHeight="@dimen/edittext_height"
+            android:text="@string/button_reset"
+            android:textColor="@color/white_item"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+			android:layout_above="@id/btn_reset"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/login_button_bg"
+            android:gravity="center"
+            android:minHeight="@dimen/edittext_height"
+            android:text="@string/button_save"
+            android:textColor="@color/white_item"
+            android:textSize="17sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

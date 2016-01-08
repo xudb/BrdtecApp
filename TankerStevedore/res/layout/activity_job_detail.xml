@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_bg"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/bottom_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottom_bg"
+        layout="@layout/layout_bottom_bar" />
+
+    <LinearLayout
+        android:id="@+id/detail_add_ll"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+
+        <com.brdtec.stevedore.widget.DrawableCenterTextView
+            android:id="@+id/job_upload_file"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/ic_job_detail_upload_bg"
+            android:drawableLeft="@drawable/ic_job_detail_upload"
+            android:gravity="center_vertical"
+            android:text="@string/job_txt_detail_upload"
+            android:textColor="@color/white_color"
+            android:layout_marginRight="10dp"
+            android:textSize="16sp" />
+
+        <com.brdtec.stevedore.widget.DrawableCenterTextView
+            android:id="@+id/job_add_task"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/ic_job_detail_add_bg"
+            android:drawableLeft="@drawable/ic_job_detail_add"
+            android:gravity="center_vertical"
+            android:text="@string/job_txt_detail_add"
+            android:textColor="@color/white_color"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/detail_title_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_add_ll"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/ic_job_top_bg" >
+
+        <TextView
+            android:id="@+id/job_detail_title"
+            style="@style/Main_Font_17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:text="作业船舶1" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/list_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_ll"
+        android:layout_below="@id/detail_title_rl"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/ic_job_bottom_bg"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/job_detail_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#DEDFE1"
+            android:dividerHeight="1px"
+            android:fadingEdge="none"
+            android:listSelector="#00000000" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:minHeight="75dp" >
+
+    <TextView
+        android:id="@+id/task_name2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:text="@string/task_txt_se"
+        android:textColor="@color/blue_item"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/task_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_bottom_job" />
+
+    <TextView
+        android:id="@+id/task_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/task_name2"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/task_icon"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:text="@string/task_txt_tufa"
+        android:textColor="@color/blue_item"
+        android:textSize="14sp" />
+
+</RelativeLayout>

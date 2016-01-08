@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="70dp"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/du_title"
+        style="@style/Main_Font_16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="12dp"
+        android:gravity="left|center_vertical"
+        android:singleLine="true"
+        android:text="任务1" />
+
+    <TextView
+        android:id="@+id/du_sub_title"
+        style="@style/Main_Font_14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/du_title"
+        android:layout_below="@id/du_title"
+        android:gravity="left|center_vertical"
+        android:singleLine="true"
+        android:text="任务1的简要说明"
+        android:textColor="@color/light_grey" />
+
+    <TextView
+        android:id="@+id/du_percent"
+        style="@style/Main_Font_14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="2dp"
+        android:gravity="left|center_vertical"
+        android:singleLine="true"
+        android:text="10%"
+        android:textColor="@color/light_grey"
+        android:textSize="13sp" />
+
+    <ProgressBar
+        android:id="@+id/du_progressbar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="120dp"
+        android:maxHeight="10dp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/du_percent"
+        android:layout_below="@id/du_percent"
+        android:max="100"
+        android:progressDrawable="@drawable/barcolor" />
+
+    <TextView
+        android:id="@+id/du_progressbar_status"
+        style="@style/Main_Font_14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/du_progressbar"
+        android:layout_below="@id/du_progressbar"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="left|center_vertical"
+        android:singleLine="true"
+        android:minHeight="20dp"
+        android:text="@string/du_txt_uploading"
+        android:textColor="@color/light_grey"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/du_cancel"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignRight="@id/du_progressbar"
+        android:layout_below="@id/du_progressbar"
+        android:layout_marginTop="5dp"
+        android:minHeight="20dp"
+        android:src="@drawable/ic_du_cancel" />
+
+    <ImageView
+        android:id="@+id/du_strat"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:minHeight="20dp"
+        android:layout_toLeftOf="@id/du_cancel"
+        android:layout_below="@id/du_progressbar"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_du_start" />
+
+</RelativeLayout>

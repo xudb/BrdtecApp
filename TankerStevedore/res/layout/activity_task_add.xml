@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/task_add_bg"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/bottom_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        layout="@layout/layout_bottom_bar" />
+
+    <GridView
+        android:id="@+id/task_gv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/transparent"
+        android:fadingEdge="none"
+        android:layout_above="@id/bottom_ll"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:listSelector="#00000000"
+        android:numColumns="3"
+        android:padding="10dp"
+        android:smoothScrollbar="true"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="10dp" />
+
+</RelativeLayout>
