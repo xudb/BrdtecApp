@@ -37,20 +37,22 @@ public class TaskAddActivity extends CustomTitleBarActivity {
 	private Integer[] mFunNames = new Integer[] { R.string.empty, R.string.empty, R.string.task_txt_tufa,
 			R.string.task_txt_zhunbei, R.string.task_txt_dengchuan, R.string.task_txt_qianyancang,
 			R.string.task_txt_check_in, R.string.task_txt_pailiang, R.string.task_txt_kaishi,
-			R.string.empty, R.string.task_txt_zuoyezhong, R.string.task_txt_yazai,
-			R.string.task_txt_xicang, R.string.task_txt_saocang, R.string.task_txt_saoxian,
-			R.string.task_txt_jieshu, R.string.task_txt_houyancang, R.string.task_txt_baogao};
+			R.string.task_txt_zuoyezhong, R.string.task_txt_yazai, R.string.task_txt_xicang, 
+			R.string.task_txt_saocang, R.string.task_txt_saoxian, R.string.empty, 
+			R.string.task_txt_houyancang, R.string.task_txt_qianchi1, R.string.task_txt_houchi1 };
 
 	private Integer[] mFunIcons = new Integer[] { R.drawable.white_drawable, R.drawable.white_drawable, R.drawable.ic_task_tufa,
 			R.drawable.ic_task_zhunbei, R.drawable.ic_task_dengchuan, R.drawable.ic_task_yancang,
 			R.drawable.ic_task_checkin, R.drawable.ic_task_pailiang, R.drawable.ic_task_kaishi,
-			R.drawable.white_drawable, R.drawable.ic_task_zuoyezhong, R.drawable.ic_task_yazai,
-			R.drawable.ic_task_xicang, R.drawable.ic_task_saocang, R.drawable.ic_task_saoxian,
-			R.drawable.ic_task_jieshu, R.drawable.ic_task_houyancang, R.drawable.ic_task_baogao};
+			R.drawable.ic_task_zuoyezhong, R.drawable.ic_task_yazai, R.drawable.ic_task_xicang, 
+			R.drawable.ic_task_saocang, R.drawable.ic_task_saoxian, R.drawable.white_drawable,
+			R.drawable.ic_task_houyancang, R.drawable.ic_task_qianchi, R.drawable.ic_task_houchi};
 	
 
 	public static final int REQUEST_INPUT = 10;
 	public static final int REQUEST_EMERGENCY = 11;
+	public static final int REQUEST_QianChi = 12;
+	public static final int REQUEST_HouChi = 13;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,7 @@ public class TaskAddActivity extends CustomTitleBarActivity {
 	
 	private void findView() {
 		setTitle(R.string.job_txt_detail_add);
+		leftView.setOnClickListener(this);
 		mBtnToJobList = (LinearLayout) findViewById(R.id.btn_to_job_ll);
 		mBtnToGuide = (LinearLayout) findViewById(R.id.btn_to_guide_ll);
 		mBtnToJobList.setOnClickListener(this);
@@ -72,14 +75,26 @@ public class TaskAddActivity extends CustomTitleBarActivity {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				if(mFunNames[position].equals(getString(R.string.empty))) {
+					return;
+				}
 				switch (position) {
 				case 2:
 					Intent i = new Intent(TaskAddActivity.this, EmergencyActivity.class);
 					startActivityForResult(i, REQUEST_EMERGENCY);
 					break;
-				case 10:
+				case 9:
 					Intent mIntent = new Intent(TaskAddActivity.this, TaskDoingInputActivity.class);
 					startActivityForResult(mIntent, REQUEST_INPUT);
+					break;
+				case 16:
+					Intent intent16 = new Intent(TaskAddActivity.this, TankDataInputAcitivity.class);
+					intent16.putExtra("isqian", true);
+					startActivityForResult(intent16, REQUEST_QianChi);
+					break;
+				case 17:
+					Intent intent17 = new Intent(TaskAddActivity.this, TankDataInputAcitivity.class);
+					startActivityForResult(intent17, REQUEST_HouChi);
 					break;
 				default:
 					finish();
@@ -92,6 +107,9 @@ public class TaskAddActivity extends CustomTitleBarActivity {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
+		case R.id.ivTitleBtnLeft:
+			finish();
+			break;
 		case R.id.btn_to_job_ll:
 			Intent i = new Intent(TaskAddActivity.this, JobListActivity.class);
 			startActivity(i);
@@ -107,6 +125,10 @@ public class TaskAddActivity extends CustomTitleBarActivity {
 			if(requestCode == REQUEST_INPUT) {
 				finish();
 		    } else if(requestCode == REQUEST_EMERGENCY) {
+		    	finish();
+		    } else if(requestCode == REQUEST_QianChi) {
+		    	finish();
+		    } else if(requestCode == REQUEST_HouChi) {
 		    	finish();
 		    }
 		}
@@ -171,7 +193,7 @@ public class TaskAddActivity extends CustomTitleBarActivity {
 			} else {
 				view.setBackgroundResource(R.drawable.task_item_bg);
 			}
-			if(position == 5 || position == 16) {
+			if(position == 5 || position == 15) {
 				holder.mTaskName2.setVisibility(View.VISIBLE);
 			} else {
 				holder.mTaskName2.setVisibility(View.GONE);

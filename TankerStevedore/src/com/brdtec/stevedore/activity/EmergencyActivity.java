@@ -32,6 +32,7 @@ public class EmergencyActivity extends CustomTitleBarActivity {
 	
 	private void findView() {
 		setTitle("突发事件");
+		leftView.setOnClickListener(this);
 		mLeiDian = (TextView) findViewById(R.id.e_leidian_tv);
 		mDaFeng = (TextView) findViewById(R.id.e_dafeng_tv);
 		mBaoYu = (TextView) findViewById(R.id.e_baoyu_tv);
@@ -53,6 +54,9 @@ public class EmergencyActivity extends CustomTitleBarActivity {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
+		case R.id.ivTitleBtnLeft:
+			finish();
+			break;
 		case R.id.e_leidian_tv:
 			setResult(RESULT_OK);
 			finish();

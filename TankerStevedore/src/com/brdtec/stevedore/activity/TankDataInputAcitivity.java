@@ -65,6 +65,7 @@ public class TankDataInputAcitivity extends CustomTitleBarActivity {
 
 	private void findView() {
 		setTitle(R.string.task_txt_qianchi);
+		leftView.setOnClickListener(this);
 		rightViewText.setText(R.string.button_save);
 		rightViewText.setVisibility(View.VISIBLE);
 		rightViewText.setOnClickListener(this);
@@ -108,11 +109,15 @@ public class TankDataInputAcitivity extends CustomTitleBarActivity {
 		String ymd = sdf.format(date);
 		String time = sdfTime.format(date);
 		mQianChiDate.setText(ymd + " " + time);
+		mHouChiDate.setText(ymd + " " + time);
 	}
 
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
+		case R.id.ivTitleBtnLeft:
+			finish();
+			break;
 		case R.id.btn_to_job_ll:
 			Intent i = new Intent(TankDataInputAcitivity.this, JobListActivity.class);
 			startActivity(i);
@@ -125,6 +130,7 @@ public class TankDataInputAcitivity extends CustomTitleBarActivity {
 		case R.id.houchishijian_tv:
 			break;
 		case R.id.ivTitleBtnRightText:
+			setResult(RESULT_OK);
 			finish();
 			break;
 		}

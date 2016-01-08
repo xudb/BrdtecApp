@@ -57,6 +57,7 @@ public class JobDetailActivity extends CustomTitleBarActivity implements MenuIte
 
 	private void findView() {
 		setTitle(R.string.job_txt_detail);
+		leftView.setOnClickListener(this);
 		mJobUpload = (TextView) findViewById(R.id.job_upload_file);
 		mJobAdd = (TextView) findViewById(R.id.job_add_task);
 		mJobDetailListView = (ListView) findViewById(R.id.job_detail_list);
@@ -80,6 +81,9 @@ public class JobDetailActivity extends CustomTitleBarActivity implements MenuIte
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
+		case R.id.ivTitleBtnLeft:
+			finish();
+			break;
 		case R.id.btn_to_job_ll:
 			Intent i = new Intent(JobDetailActivity.this, JobListActivity.class);
 			startActivity(i);
@@ -101,7 +105,7 @@ public class JobDetailActivity extends CustomTitleBarActivity implements MenuIte
 	public void showActionSheet() {
 		ActionSheet menuView = new ActionSheet(this);
 		menuView.setCancelButtonTitle("取消");// before add items
-		menuView.addItems("拍照", "从相册中选择", "录入前尺数据", "录入后尺数据");
+		menuView.addItems("拍照", "从相册中选择");
 		menuView.setItemClickListener(this);
 		menuView.setCancelableOnTouchMenuOutside(true);
 		menuView.showMenu();

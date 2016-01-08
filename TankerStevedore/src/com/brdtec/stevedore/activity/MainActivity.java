@@ -82,12 +82,12 @@ public class MainActivity extends CustomTitleBarActivity {
         MQManager.init(this, "b4de1d7b976d16448b115f4ae55dd258", new OnInitCallBackOn() {
             @Override
             public void onSuccess() {
-                Toast.makeText(MainActivity.this, "init success", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "init success", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(int code, String message) {
-                Toast.makeText(MainActivity.this, "int failure", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "int failure", Toast.LENGTH_SHORT).show();
             }
         });
         MQManager.getInstance(this).setDebugMode(true);

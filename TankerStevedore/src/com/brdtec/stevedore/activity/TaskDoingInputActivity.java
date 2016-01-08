@@ -34,6 +34,7 @@ public class TaskDoingInputActivity extends CustomTitleBarActivity {
 
 	private void findView() {
 		setTitle(R.string.task_txt_zuoyezhong);
+		leftView.setOnClickListener(this);
 		mBtnToJobList = (LinearLayout) findViewById(R.id.btn_to_job_ll);
 		mBtnToGuide = (LinearLayout) findViewById(R.id.btn_to_guide_ll);
 		mBtnToJobList.setOnClickListener(this);
@@ -50,6 +51,9 @@ public class TaskDoingInputActivity extends CustomTitleBarActivity {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
+		case R.id.ivTitleBtnLeft:
+			finish();
+			break;
 		case R.id.btn_to_job_ll:
 			Intent i = new Intent(TaskDoingInputActivity.this, JobListActivity.class);
 			startActivity(i);

@@ -21,7 +21,7 @@
 
     <!-- 登录 -->
     <string name="login_name">用户名</string>
-    <string name="login_name_hint">请输入手机号</string>
+    <string name="login_name_hint">请输入用户名</string>
     <string name="login_name_hint2">请检查手机号格式</string>
     <string name="login_pwd">密码</string>
     <string name="login_pwd_hint">请输入密码</string>
@@ -66,14 +66,16 @@
 	<string name="task_txt_qianyancang">作业前验舱</string>
 	<string name="task_txt_check_in">Check In</string>
 	<string name="task_txt_pailiang">排量</string>
-	<string name="task_txt_kaishi">开始</string>
-	<string name="task_txt_zuoyezhong">作业中</string>
+	<string name="task_txt_kaishi">作业开始</string>
+	<string name="task_txt_zuoyezhong">作业中&#8230;</string>
 	<string name="task_txt_yazai">压载</string>
 	<string name="task_txt_xicang">原油洗舱</string>
 	<string name="task_txt_saocang">扫舱</string>
 	<string name="task_txt_saoxian">扫线</string>
 	<string name="task_txt_jieshu">作业结束</string>
 	<string name="task_txt_houyancang">作业后验仓</string>
+	<string name="task_txt_qianchi1">录入前尺&#8230;</string>
+	<string name="task_txt_houchi1">录入后尺&#8230;</string>
 	<string name="task_txt_baogao">出报告</string>
 	<string name="task_txt_se">(开始/结束)</string>
 	

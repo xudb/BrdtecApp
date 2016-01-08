@@ -20,7 +20,6 @@ import com.brdtec.stevedore.R;
 import com.brdtec.stevedore.common.Constant;
 import com.brdtec.stevedore.common.CustomTitleBarActivity;
 import com.brdtec.stevedore.data.response.JSONResponseData;
-import com.brdtec.stevedore.utils.StringUtils;
 import com.brdtec.stevedore.utils.Utils;
 import com.google.gson.Gson;
 import com.lidroid.xutils.HttpUtils;
@@ -84,17 +83,17 @@ public class LoginActivity extends CustomTitleBarActivity {
 	public void login(){
 		if(accountEt.getText().toString().equals("")){
 			Toast.makeText(LoginActivity.this, getString(R.string.login_name) + getString(R.string.is_not_empty), Toast.LENGTH_LONG).show();
-			//return;
+			return;
 		}
 		
-		if(!StringUtils.isMobileNO(accountEt.getText().toString())) {
+		/*if(!StringUtils.isMobileNO(accountEt.getText().toString())) {
 			Toast.makeText(LoginActivity.this, "手机号码格式不正确", Toast.LENGTH_LONG).show();
 			//return;
-		}
+		}*/
 		
 		if(passwordEt.getText().toString().equals("")){
 			Toast.makeText(LoginActivity.this, getString(R.string.login_pwd) + getString(R.string.is_not_empty), Toast.LENGTH_LONG).show();
-			//return;
+			return;
 		}
 		doLogin();		
 	}
@@ -108,14 +107,14 @@ public class LoginActivity extends CustomTitleBarActivity {
 					proDialog.dismiss();
 				}
 				Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_LONG).show();
+				Intent i = new Intent(LoginActivity.this, MainActivity.class);
+				startActivity(i);
 				break;
 			case 2:
 				if (proDialog != null && proDialog.isShowing()) {
 					proDialog.dismiss();
 				}
-				if(msg.obj != null) {
-					Toast.makeText(LoginActivity.this, msg.obj.toString(), Toast.LENGTH_LONG).show();
-				}
+				Toast.makeText(LoginActivity.this, "密码错误", Toast.LENGTH_LONG).show();
 				break;
 			case 3:
 				if (proDialog != null && proDialog.isShowing()) {
@@ -169,9 +168,11 @@ public class LoginActivity extends CustomTitleBarActivity {
 							Utils.setSharedPreferencesAll(LoginActivity.this, new String[]{name, pwd}, new String[]{Constant.Preferences.KEY_USER, Constant.Preferences.KEY_PASS});
 						}
 						mHandler.sendEmptyMessage(1);							
+					} else if(mData.stuscode.equals(Constant.HTTPStatus.E1)) {
+						mHandler.sendEmptyMessage(2);							
 					} else {
 						Message msg = mHandler.obtainMessage();
-						msg.what = 2;
+						msg.what = 3;
 						msg.obj = responseInfo.result;
 						mHandler.sendMessage(msg);
 					}

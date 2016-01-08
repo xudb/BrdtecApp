@@ -38,6 +38,8 @@
             android:background="@drawable/task_input_bg"
             android:gravity="left|center_vertical"
             android:hint="请输入"
+            android:singleLine="true"
+            android:imeOptions="actionNext"
             android:minHeight="@dimen/edittext_32_height"
             android:paddingLeft="4dp" />
 
@@ -63,6 +65,8 @@
             android:background="@drawable/task_input_bg"
             android:gravity="left|center_vertical"
             android:hint="请输入"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
             android:minHeight="@dimen/edittext_32_height"
             android:paddingLeft="4dp" />
 

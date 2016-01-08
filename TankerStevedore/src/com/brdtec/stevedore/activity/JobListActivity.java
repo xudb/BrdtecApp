@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
@@ -34,7 +35,7 @@ public class JobListActivity extends CustomTitleBarActivity {
 
 	TextView mJobTypeSel;
 
-	TextView mJobSearch;
+	EditText mJobSearch;
 
 	ListView mJobListView;
 
@@ -49,8 +50,10 @@ public class JobListActivity extends CustomTitleBarActivity {
 
 	private void findView() {
 		setTitle(R.string.main_txt_job);
+		leftView.setOnClickListener(this);
 		mJobTypeSel = (TextView) findViewById(R.id.job_type_tv);
-		mJobSearch = (TextView) findViewById(R.id.job_type_search);
+		mJobSearch = (EditText) findViewById(R.id.job_type_search);
+		mJobSearch.clearFocus();
 		mJobListView = (ListView) findViewById(R.id.job_listview);
 		mJobTypeSel.setOnClickListener(this);
 		JobAdapter mAdapter = new JobAdapter(this);
@@ -60,8 +63,7 @@ public class JobListActivity extends CustomTitleBarActivity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View view,
 					int position, long arg3) {
-				Intent i = new Intent(JobListActivity.this,
-						JobDetailActivity.class);
+				Intent i = new Intent(JobListActivity.this, JobDetailActivity.class);
 				startActivity(i);
 			}
 		});
@@ -123,6 +125,9 @@ public class JobListActivity extends CustomTitleBarActivity {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
+		case R.id.ivTitleBtnLeft:
+			finish();
+			break;
 		case R.id.job_type_tv:
 			showHelpMenu();
 			break;

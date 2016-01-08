@@ -38,7 +38,7 @@ public class SplashActivity extends BaseActivity {
 			return;
 		}
 		try {
-			boolean isRemberPwd = false;//Utils.getBooleanSharedPreferences(this, Constant.Preferences.KEY_RECORD);
+			boolean isRemberPwd = Utils.getBooleanSharedPreferences(this, Constant.Preferences.KEY_RECORD);
 			if(isRemberPwd) {
 				String name = Utils.getStringSharedPreferences(this, Constant.Preferences.KEY_USER);
 				String pwd = Utils.getStringSharedPreferences(this, Constant.Preferences.KEY_PASS);
@@ -87,7 +87,7 @@ public class SplashActivity extends BaseActivity {
 				finish();
 				break;
 			case 1001:
-				Intent intent1 = new Intent(SplashActivity.this, MainActivity.class);
+				Intent intent1 = new Intent(SplashActivity.this, LoginActivity.class);
 				startActivity(intent1);
 				finish();
 				break;
