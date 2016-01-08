@@ -85,7 +85,8 @@
             android:gravity="left|bottom"
             android:minHeight="@dimen/edittext_32_height"
             android:text="最多可以添加5个岸罐子"
-            android:textSize="8sp" />
+            android:singleLine="true"
+            android:textSize="12sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -143,7 +144,6 @@
             android:layout_marginTop="20dp"
             android:layout_toRightOf="@id/qianchishijian"
             android:background="@drawable/task_input_bg"
-            android:drawableRight="@drawable/ic_job_arrow_down"
             android:gravity="left|center_vertical"
             android:minHeight="@dimen/edittext_32_height"
             android:paddingLeft="4dp"
@@ -257,7 +257,6 @@
             android:layout_marginLeft="15dp"
             android:layout_toRightOf="@id/houchishijian"
             android:background="@drawable/task_input_bg"
-            android:drawableRight="@drawable/ic_job_arrow_down"
             android:gravity="left|center_vertical"
             android:minHeight="@dimen/edittext_32_height"
             android:paddingLeft="4dp"

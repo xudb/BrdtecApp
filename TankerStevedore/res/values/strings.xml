@@ -74,6 +74,8 @@
 	<string name="task_txt_saoxian">扫线</string>
 	<string name="task_txt_jieshu">作业结束</string>
 	<string name="task_txt_houyancang">作业后验仓</string>
+	<string name="task_txt_qianchi1">录入前尺&#8230;</string>
+	<string name="task_txt_houchi1">录入后尺&#8230;</string>
 	<string name="task_txt_baogao">出报告</string>
 	<string name="task_txt_se">(开始/结束)</string>
 	

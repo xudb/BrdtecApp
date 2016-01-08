@@ -101,7 +101,7 @@ public class JobDetailActivity extends CustomTitleBarActivity implements MenuIte
 	public void showActionSheet() {
 		ActionSheet menuView = new ActionSheet(this);
 		menuView.setCancelButtonTitle("取消");// before add items
-		menuView.addItems("拍照", "从相册中选择", "录入前尺数据", "录入后尺数据");
+		menuView.addItems("拍照", "从相册中选择");
 		menuView.setItemClickListener(this);
 		menuView.setCancelableOnTouchMenuOutside(true);
 		menuView.showMenu();

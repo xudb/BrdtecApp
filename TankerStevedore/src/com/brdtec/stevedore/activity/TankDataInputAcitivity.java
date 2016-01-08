@@ -108,6 +108,7 @@ public class TankDataInputAcitivity extends CustomTitleBarActivity {
 		String ymd = sdf.format(date);
 		String time = sdfTime.format(date);
 		mQianChiDate.setText(ymd + " " + time);
+		mHouChiDate.setText(ymd + " " + time);
 	}
 
 	@Override
@@ -125,6 +126,7 @@ public class TankDataInputAcitivity extends CustomTitleBarActivity {
 		case R.id.houchishijian_tv:
 			break;
 		case R.id.ivTitleBtnRightText:
+			setResult(RESULT_OK);
 			finish();
 			break;
 		}
