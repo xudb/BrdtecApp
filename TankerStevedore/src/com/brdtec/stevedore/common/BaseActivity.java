@@ -118,8 +118,8 @@ public class BaseActivity extends Activity implements OnClickListener, AMapLocat
 
 	protected boolean onBackEvent() {
 		if(Utils.isTopActivity(this, "com.brdtec.stevedore.activity.MainActivity")) {
-			moveTaskToBack(true);
-			return true;
+			//moveTaskToBack(true);
+			return false;
 		}
 		return false;
 	}

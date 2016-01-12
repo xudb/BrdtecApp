@@ -38,7 +38,7 @@ public class SplashActivity extends BaseActivity {
 			return;
 		}
 		try {
-			boolean isRemberPwd = Utils.getBooleanSharedPreferences(this, Constant.Preferences.KEY_RECORD);
+			boolean isRemberPwd = false;//Utils.getBooleanSharedPreferences(this, Constant.Preferences.KEY_RECORD);
 			if(isRemberPwd) {
 				String name = Utils.getStringSharedPreferences(this, Constant.Preferences.KEY_USER);
 				String pwd = Utils.getStringSharedPreferences(this, Constant.Preferences.KEY_PASS);
@@ -70,7 +70,7 @@ public class SplashActivity extends BaseActivity {
 					});
 				}
 			} else {
-				mHandler.sendEmptyMessageDelayed(1001, 2000);
+				mHandler.sendEmptyMessageDelayed(1001, 1500);
 			}
 		} catch (Exception e) {
 

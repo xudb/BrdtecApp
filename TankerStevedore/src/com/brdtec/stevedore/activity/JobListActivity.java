@@ -1,9 +1,13 @@
 package com.brdtec.stevedore.activity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -20,10 +24,21 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.brdtec.stevedore.BrdSDK;
 import com.brdtec.stevedore.R;
+import com.brdtec.stevedore.common.Constant;
 import com.brdtec.stevedore.common.CustomTitleBarActivity;
+import com.brdtec.stevedore.data.Work;
+import com.brdtec.stevedore.data.response.JobListResponseData;
 import com.brdtec.stevedore.utils.ViewUtils;
+import com.google.gson.Gson;
+import com.lidroid.xutils.HttpUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.lidroid.xutils.http.client.HttpRequest;
 
 /***
  * 任务列表界面
@@ -38,6 +53,8 @@ public class JobListActivity extends CustomTitleBarActivity {
 	EditText mJobSearch;
 
 	ListView mJobListView;
+	
+	JobAdapter mAdapter;
 
 	public PopupWindow mPopupMenu;
 
@@ -46,6 +63,7 @@ public class JobListActivity extends CustomTitleBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_job_list);
 		findView();
+		getData("");
 	}
 
 	private void findView() {
@@ -56,15 +74,61 @@ public class JobListActivity extends CustomTitleBarActivity {
 		mJobSearch.clearFocus();
 		mJobListView = (ListView) findViewById(R.id.job_listview);
 		mJobTypeSel.setOnClickListener(this);
-		JobAdapter mAdapter = new JobAdapter(this);
+		mAdapter = new JobAdapter(this);
 		mJobListView.setAdapter(mAdapter);
 		mJobListView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View view,
-					int position, long arg3) {
-				Intent i = new Intent(JobListActivity.this, JobDetailActivity.class);
-				startActivity(i);
+			public void onItemClick(AdapterView<?> arg0, View view, int position, long arg3) {
+				try{
+					Work work = BrdSDK.getBrdSDK().mWorks.get(position);
+					if(work != null) {
+						if(work.stus.equals("IP")) {
+							Intent i = new Intent(JobListActivity.this, JobDetailActivity.class);
+							startActivity(i);
+						} else if(work.stus.equals("NS")) {
+							Toast.makeText(JobListActivity.this, "该作业还未开始", Toast.LENGTH_LONG).show();
+						} else if(work.stus.equals("ED")) {
+							Toast.makeText(JobListActivity.this, "该作业已结束", Toast.LENGTH_LONG).show();
+						}
+					}
+				} catch(Exception e) {
+					
+				}
+			}
+		});
+	}
+
+	private void getData(String status) {
+		String url = "http://brdtec.cn/otrm/service.php?func=qrywork&sessionid=" + mApplication.getSessionId()
+				+ "&stus=" + status;
+		HttpUtils http = new HttpUtils();
+		http.configCurrentHttpCacheExpiry(1000 * 10);
+		http.send(HttpRequest.HttpMethod.GET, url, new RequestCallBack<String>() {
+
+			@Override
+			public void onFailure(HttpException arg0, String arg1) {
+
+			}
+
+			@Override
+			public void onSuccess(ResponseInfo<String> responseInfo) {
+				Gson gson = new Gson();
+				JobListResponseData mData = gson.fromJson(responseInfo.result, JobListResponseData.class);
+				String status = mData.stuscode;
+				if (status.equals(Constant.HTTPStatus.S0)) {
+					BrdSDK.getBrdSDK().mWorks = mData.works;
+					mAdapter.setData(BrdSDK.getBrdSDK().mWorks);
+				} else if (status.equals(Constant.HTTPStatus.E6) || status.equals(Constant.HTTPStatus.E0)) {
+					Toast.makeText(JobListActivity.this, "服务器解析错误", Toast.LENGTH_LONG).show();
+				} else if (status.equals(Constant.HTTPStatus.E5)) {
+					Toast.makeText(JobListActivity.this, "服务器未实现", Toast.LENGTH_LONG).show();
+				} else {
+					Toast.makeText(JobListActivity.this, "认证失败，请重新登录", Toast.LENGTH_LONG).show();
+					Intent i = new Intent(JobListActivity.this, LoginActivity.class);
+					startActivity(i);
+					finish();
+				}
 			}
 		});
 	}
@@ -86,11 +150,11 @@ public class JobListActivity extends CustomTitleBarActivity {
 
 		LayoutInflater inflact = LayoutInflater.from(JobListActivity.this);
 		View view = inflact.inflate(R.layout.layout_help_menus, null);
-		mPopupMenu = new PopupWindow(view, ViewUtils.dpToPx(this, 110),
-				LayoutParams.WRAP_CONTENT);
+		mPopupMenu = new PopupWindow(view, ViewUtils.dpToPx(this, 110), LayoutParams.WRAP_CONTENT);
 		(view.findViewById(R.id.btn_job_prepare)).setOnClickListener(this);
 		(view.findViewById(R.id.btn_job_doing)).setOnClickListener(this);
 		(view.findViewById(R.id.btn_job_done)).setOnClickListener(this);
+		(view.findViewById(R.id.btn_job_all)).setOnClickListener(this);
 		mPopupMenu.setFocusable(true); // 设置PopupWindow可获得焦点
 		mPopupMenu.setTouchable(true); // 设置PopupWindow可触摸
 		mPopupMenu.setOutsideTouchable(true); // 设置PopupWindow外部区域是否可触摸
@@ -121,7 +185,7 @@ public class JobListActivity extends CustomTitleBarActivity {
 			}
 		});
 	}
-	
+
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
@@ -135,16 +199,25 @@ public class JobListActivity extends CustomTitleBarActivity {
 			if (mPopupMenu != null && mPopupMenu.isShowing()) {
 				mPopupMenu.dismiss();
 			}
+			getData("NS");
 			break;
 		case R.id.btn_job_doing:
 			if (mPopupMenu != null && mPopupMenu.isShowing()) {
 				mPopupMenu.dismiss();
 			}
+			getData("IP");
 			break;
 		case R.id.btn_job_done:
 			if (mPopupMenu != null && mPopupMenu.isShowing()) {
 				mPopupMenu.dismiss();
 			}
+			getData("ED");
+			break;
+		case R.id.btn_job_all:
+			if (mPopupMenu != null && mPopupMenu.isShowing()) {
+				mPopupMenu.dismiss();
+			}
+			getData("");
 			break;
 		}
 	}
@@ -152,14 +225,25 @@ public class JobListActivity extends CustomTitleBarActivity {
 	public class JobAdapter extends BaseAdapter {
 
 		private Context mContext;
+		
+		private List<Work> mWorks = new ArrayList<Work>();
 
 		public JobAdapter(Context context) {
 			mContext = context;
 		}
+		
+		public void setData(List<Work> works) {
+			if(works != null && works.size() > 0) {
+				mWorks = works;
+			} else {
+				mWorks = new ArrayList<Work>();
+			}
+			notifyDataSetChanged();
+		}
 
 		@Override
 		public int getCount() {
-			return 2;
+			return mWorks.size();
 		}
 
 		@Override
@@ -183,13 +267,25 @@ public class JobListActivity extends CustomTitleBarActivity {
 				view = inflater.inflate(R.layout.layout_job_item, null);
 				// 得到控件
 				holder.mJobTitle = (TextView) view.findViewById(R.id.job_title);
-				holder.mJobSummary = (TextView) view
-						.findViewById(R.id.job_sub_title);
-				holder.mJobStatus = (ImageView) view
-						.findViewById(R.id.job_status);
+				holder.mJobSummary = (TextView) view.findViewById(R.id.job_sub_title);
+				holder.mJobStatus = (ImageView) view.findViewById(R.id.job_status);
 				view.setTag(holder);
 			} else {
 				holder = (ViewHolder) view.getTag();
+			}
+			Work work = mWorks.get(position);
+			holder.mJobTitle.setText(work.sname);
+			if(!TextUtils.isEmpty(work.remark)) {
+				holder.mJobSummary.setText(work.remark);
+			}
+			if(!TextUtils.isEmpty(work.stus)) {
+				if("NS".equals(work.stus)) {
+					holder.mJobStatus.setImageResource(R.drawable.ic_job_prepare);
+				} else if("IP".equals(work.stus)) {
+					holder.mJobStatus.setImageResource(R.drawable.ic_job_doing);
+				} else if("ED".equals(work.stus)) {
+					holder.mJobStatus.setImageResource(R.drawable.ic_job_don);
+				}
 			}
 			return view;
 		}

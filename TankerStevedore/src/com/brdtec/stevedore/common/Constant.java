@@ -9,6 +9,8 @@ import android.os.Environment;
  * 
  */
 public interface Constant {
+	/** API接口 */
+	public static String URL_ROOT = "http://brdtec.cn/otrm/service.php";
 	
 	public static String SD_ROOT = Environment.getExternalStorageDirectory().getAbsolutePath();
 	public static String PATH_ROOT = SD_ROOT + "/brdtec/";

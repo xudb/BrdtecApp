@@ -42,12 +42,12 @@ public class LoginActivity extends CustomTitleBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		if(!TextUtils.isEmpty(mApplication.getSessionId())) {
+		/*if(!TextUtils.isEmpty(mApplication.getSessionId())) {
 			Intent i = new Intent(LoginActivity.this, MainActivity.class);
 			startActivity(i);
 			finish();
 			return;
-		}
+		}*/
 		setContentView(R.layout.activity_login);
 		setTitle(R.string.login_button_name);
 		initUI();
@@ -109,6 +109,7 @@ public class LoginActivity extends CustomTitleBarActivity {
 				Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_LONG).show();
 				Intent i = new Intent(LoginActivity.this, MainActivity.class);
 				startActivity(i);
+				finish();
 				break;
 			case 2:
 				if (proDialog != null && proDialog.isShowing()) {
@@ -123,7 +124,7 @@ public class LoginActivity extends CustomTitleBarActivity {
 				if(msg.obj != null) {
 					Toast.makeText(LoginActivity.this, msg.obj.toString(), Toast.LENGTH_LONG).show();
 				}
-				finish();
+				//finish();
 				break;
 			}
 		};

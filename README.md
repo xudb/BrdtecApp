@@ -1,2 +1,0 @@
-# BrdtecApp
-brdtec android app
