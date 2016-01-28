@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    
+     <string name="app_name">TEST</string>
+    <string name="title_section1">面板</string>
+    <string name="title_section2">行程</string>
+    <string name="title_section3">车况</string>
+    <string name="title_section4">服务</string>
+    <string name="title_section5">设置</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_device_state">DeviceState</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="Scan_str1">扫描附近设备</string>
+    <string name="title_activity_device_control">DeviceControl</string>
+    <string name="connected">Connected</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="title_activity_default_device_set">DefaultDeviceSet</string>
+    
+   
+    <string name="home_page">作业任务</string>
+   
+    <string name="task_list">作业任务一览</string>
+    <string name="field_data_upload">现场任务上传</string>
+    <string name="remote_instruction">远程指导</string>
+    <string name="system_set">系统设置</string>
+    
+   
+     <string name="update">上传</string>
+    <string name="newly_added">新增</string>
+   
+    
+    
+    <string name="help_page">远程指导</string>
+    <string name="update_page">数据上传</string>
+    <string name="set_page">设置</string>
+    <string name="function_select">功能向导</string>
+    
+    
+    <!-- 登录，注册 -->
+    <string name="login_name">用户名</string>
+    <string name="login_name_hint">请输入用户名</string>
+    <string name="user_name">姓名</string>
+    <string name="user_name_hint">请输入真实姓名</string>
+    <string name="login_pwd">密码</string>
+    <string name="login_pwd_hint">请输入密码</string>
+    <string name="remember_pwd">记住密码</string>
+    <string name="confirm_pwd">确认密码</string>
+    <string name="org_pwd">原密码</string>
+    <string name="new_pwd">新密码</string>
+    <string name="modify_pwd">修改密码</string>
+    <string name="pwd_not_same">密码不一致</string>
+	<string name="account_limit_hint">4~20个字符</string>
+	<string name="email_input_hint">请输入常用邮箱</string>
+	<string name="pwd_input_hint">6~16个字符</string>
+	<string name="confirm_pwd_hint">请再次输入密码</string>
+    <string name="login_button_name">登录</string>
+    <string name="regist_button_name">注册</string>
+    <string name="regist_guide">立即注册</string>
+    <string name="forgot_pwd">忘记密码？</string>
+    <string name="email_address">邮箱地址</string>
+    <string name="email_not_correct">邮箱格式不正确</string>
+    <string name="is_not_empty">不能为空</string>
+    <string name="pwd_too_short">长度不能小于6</string>
+	<string name="login_success">登录成功</string>
+	<string name="find_pwd">找回密码</string>
+	<string name="find_pwd_success">找回密码成功，请登录邮箱查看</string>
+	<string name="logout">注销</string>
+	<string name="logout_toast">已注销</string>
+	<string name="cardno_text">智能卡号</string>
+	<string name="cardno_hint">请输入16位智能卡号</string>
+	<string name="cardno_correct">智能卡号格式不正确</string>
+    
+</resources>
